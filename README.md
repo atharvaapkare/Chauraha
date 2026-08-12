@@ -17,20 +17,38 @@ If an image ever fails to load (missing file, bad URL), the card falls back
 to a plain color block using that stall's `c1`/`c2` colors — it never breaks
 the layout.
 
-## Turning on the ambient sound
-Open `index.html`, find `CONFIG` near the top of the `<script>`:
+## The soundtrack
+There's no button — the site always loads one fixed Spotify track as a
+floating player, bottom-left. Change it any time in `CONFIG` near the top
+of the `<script>`:
 
 ```js
 const CONFIG = {
-  ambientSoundUrl: "",       // <-- put a link to a looping mp3/ogg here
-  backdropImageUrl: ""       // optional: swap the illustrated skyline for a photo
+  spotifyTrackId: "62O5vcMfejaWFhHkll3ju5",  // swap this id to change the track
+  backdropImageUrl: ""
 };
 ```
 
-Put a link to your own looping ambience file here — either a file you add to
-a `/sounds` folder in this repo (e.g. `"sounds/chauraha-loop.mp3"`) or any
-direct hosted audio URL. Until you set this, the button will tell the visitor
-it isn't configured yet, instead of failing silently.
+Grab the id from any Spotify share link: `open.spotify.com/track/<THIS PART>?si=...`
+
+One honest limitation, true of every website, not just this one: browsers
+block audio autoplay-with-sound until the visitor has interacted with the
+page at least once (a click, a scroll, a tap). No embed can override that —
+it's a browser policy, not a Spotify or Chauraha setting. The player starts
+the moment they click anywhere on the page, and Spotify's own controls
+inside the embed let them pause or skip.
+
+## Visiting a stall — no redirects
+Clicking "Andar chalo" opens the destination site inline, inside the
+chauraha, in a full-size in-site view — the visitor never leaves the page or
+gets sent to a new tab automatically. A small "Naya tab mein kholo" link
+stays available in the corner in case a particular site refuses to be
+embedded (some sites set security headers — `X-Frame-Options` / CSP
+`frame-ancestors` — that block being shown inside another site's page, as a
+clickjacking protection; the chauraha can't override that from its side).
+If chaitapri.wtf, saloon.wtf, or truckpemusic.online happen to set that
+header, embedding will show blank there and the fallback link is the way
+out — worth checking once you deploy this for real.
 
 ## Adding a new built-in stall
 Add one object to the `STALLS` array with `id`, `hi`, `en`, `status`

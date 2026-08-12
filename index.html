@@ -61,35 +61,38 @@
     font-family:'Yatra One',cursive; font-size:1.7rem; color:var(--marigold-2);
     display:flex; align-items:center; gap:10px;
   }
-  .brand span{ font-size:.9rem; font-family:'Space Mono',monospace; color:#9aa4bb; letter-spacing:2px; }
-  .navmeta{ display:flex; align-items:center; gap:18px; font-family:'Space Mono',monospace; font-size:.78rem; color:#c9cfdd; }
+  .brand span{ font-size:.9rem; font-family:'Space Mono',monospace; color:#cfd4e2; letter-spacing:2px; }
+  nav{
+    background:rgba(11,15,28,.62); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(1px);
+    border-radius:16px; padding:14px 22px; margin-top:20px;
+  }
+  .navmeta{ display:flex; align-items:center; gap:18px; font-family:'Space Mono',monospace; font-size:.78rem; color:#e3e6f0; }
   .navmeta .dot{ width:7px; height:7px; border-radius:50%; background:#6fcf7a; display:inline-block; margin-right:6px; box-shadow:0 0 8px #6fcf7a; animation:pulse 2s infinite; }
   @keyframes pulse{ 50%{opacity:.4;} }
 
   /* ---------- HERO ---------- */
-  .hero{ padding:42px 0 40px; max-width:700px; }
+  .hero{
+    margin-top:26px; margin-bottom:34px; padding:34px 32px 36px; max-width:640px;
+    background:linear-gradient(160deg, rgba(11,15,28,.72), rgba(11,15,28,.55));
+    border:1px solid rgba(181, 23, 23, 0.1); border-radius:22px;
+    backdrop-filter:blur(0.1px);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+  }
   .hero h1{
-    font-family:'Yatra One',cursive; font-size:clamp(2.4rem, 6vw, 4.4rem); line-height:1.08;
-    margin:0 0 6px; color:var(--cream); text-shadow:0 4px 30px var(--shadow);
+    font-family:'Yatra One',cursive; font-weight:400; font-size:clamp(2.2rem, 5.4vw, 3.8rem); line-height:1.1;
+    margin:0 0 10px; color:#FFFFFF;
   }
-  .hero h1 em{ font-style:normal; color:var(--marigold); }
-  .hero p{ font-size:1.02rem; line-height:1.65; color:#d7dbe8; max-width:520px; margin:14px 0 26px; }
-
-  .soundtoggle{
-    display:inline-flex; align-items:center; gap:10px;
-    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.2);
-    color:var(--cream); padding:10px 18px; border-radius:999px;
-    font-family:'Space Mono',monospace; font-size:.8rem; cursor:pointer; transition:background .2s;
+  .hero h1 em{ font-style:normal; color:var(--marigold-2); }
+  .hero p{
+    font-size:1.02rem; line-height:1.65; color:#dde1ee; max-width:520px; margin:0;
   }
-  .soundtoggle:hover{ background:rgba(255,255,255,.13); }
-  .soundtoggle .bars{ display:flex; gap:2px; align-items:flex-end; height:12px; }
-  .soundtoggle .bars i{ width:2px; background:var(--marigold); display:block; animation:bar 1s infinite ease-in-out; }
-  .soundtoggle .bars i:nth-child(1){height:40%;} .soundtoggle .bars i:nth-child(2){height:100%;animation-delay:.2s;} .soundtoggle .bars i:nth-child(3){height:65%;animation-delay:.4s;}
-  @keyframes bar{ 0%,100%{transform:scaleY(.4);} 50%{transform:scaleY(1);} }
-  .soundtoggle.muted .bars i{ animation-play-state:paused; }
 
   /* ---------- GRID ---------- */
-  .section-label{ font-family:'Space Mono',monospace; font-size:.75rem; letter-spacing:3px; color:var(--marigold); text-transform:uppercase; margin:0 0 16px; }
+  .section-label{
+    display:inline-block; font-family:'Space Mono',monospace; font-size:.75rem; letter-spacing:3px; color:#1f1706;
+    text-transform:uppercase; margin:0 0 16px; background:var(--marigold-2);
+    padding:6px 14px; border-radius:999px; font-weight:700;
+  }
   .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
   @media(max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr);} }
   @media(max-width:600px){ .grid{ grid-template-columns:1fr;} }
@@ -132,29 +135,11 @@
   .stall .go svg{ width:12px; height:12px; transition:transform .2s; }
   .stall:hover .go svg{ transform:translateX(3px); }
 
-  .stall .userbadge{
-    position:absolute; top:12px; left:12px; z-index:3;
-    background:rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.2);
-    font-family:'Space Mono',monospace; font-size:.6rem; padding:3px 8px; border-radius:999px; color:var(--marigold-2);
-  }
-  .stall .removeBtn{
-    position:absolute; bottom:10px; right:10px; z-index:5;
-    background:rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.2); color:#e8b7b3;
-    font-family:'Space Mono',monospace; font-size:.65rem; padding:4px 8px; border-radius:8px; cursor:pointer;
-  }
-
-  .stall.add{
-    align-items:center; justify-content:center; text-align:center; min-height:238px;
-    border:1.5px dashed rgba(255,255,255,.25); background:rgba(255,255,255,.02);
-  }
-  .stall.add .plus{ width:40px; height:40px; border-radius:50%; border:1.5px dashed rgba(255,255,255,.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--marigold-2); margin-bottom:10px; }
-  .stall.add h3{ margin:0 0 4px; }
-  .stall.add p{ font-size:.8rem; color:#a9b0c2; max-width:220px; padding:0 16px; }
-
   footer{
-    margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08);
+    margin-top:56px; padding:18px 24px; border-radius:14px;
+    background:rgba(11,15,28,.62); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(8px);
     display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;
-    font-family:'Space Mono',monospace; font-size:.72rem; color:#8791a8;
+    font-family:'Space Mono',monospace; font-size:.72rem; color:#dde1ee;
   }
 
   /* ================= MODAL ================= */
@@ -197,22 +182,31 @@
   .btn-ghost{ background:rgba(255,255,255,.08); color:var(--cream); border:1px solid rgba(255,255,255,.16); }
   .modal-note{ font-size:.78rem; color:#8f97ab; margin-top:14px; }
 
-  /* form modal */
-  .field{ margin-bottom:14px; }
-  .field label{ display:block; font-size:.72rem; font-family:'Space Mono',monospace; letter-spacing:1px; color:#a9b0c2; margin-bottom:6px; text-transform:uppercase;}
-  .field input, .field textarea, .field select{
-    width:100%; padding:10px 12px; border-radius:9px; border:1px solid rgba(255,255,255,.18);
-    background:rgba(255,255,255,.05); color:var(--cream); font-family:'Poppins',sans-serif; font-size:.88rem;
+  /* in-site embed view */
+  .embedbox{
+    width:100%; max-width:1040px; height:min(82vh, 760px);
+    background:#0c1120; border:1px solid rgba(255,255,255,.14); border-radius:18px;
+    overflow:hidden; display:flex; flex-direction:column;
+    box-shadow:0 30px 70px rgba(0,0,0,.65);
+    animation:pop .25s ease;
   }
-  .field textarea{ resize:vertical; min-height:64px; }
-  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .swatches{ display:flex; gap:8px; }
-  .swatch{ width:28px; height:28px; border-radius:50%; cursor:pointer; border:2px solid transparent; }
-  .swatch.sel{ border-color:var(--cream); }
-  .userlist{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
-  .userlist .item{ display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,.05); padding:8px 12px; border-radius:8px; font-size:.85rem; }
-  .userlist .item button{ background:none; border:none; color:#e8b7b3; cursor:pointer; font-family:'Space Mono',monospace; font-size:.7rem; }
-  .capnote{ font-size:.78rem; color:var(--marigold-2); background:rgba(232,169,59,.08); border:1px solid rgba(232,169,59,.25); padding:10px 12px; border-radius:9px; margin-bottom:14px; }
+  .embedbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 16px; background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    font-family:'Yatra One',cursive; font-size:1.1rem; color:var(--cream);
+  }
+  .embedbar-right{ display:flex; align-items:center; gap:12px; }
+  .embedbar-right a{ font-family:'Space Mono',monospace; font-size:.7rem; color:#a9b0c2; text-decoration:none; white-space:nowrap; }
+  .embedbar-right a:hover{ color:var(--marigold-2); }
+  .embedbar .modal-close{ position:static; }
+  .embedframe-wrap{ position:relative; flex:1; background:#050810; }
+  .embedframe-wrap iframe{ width:100%; height:100%; border:0; display:block; }
+  .embedloading{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-size:.85rem; color:#8f97ab;
+  }
+  .embedloading.hide{ display:none; }
 </style>
 </head>
 <body>
@@ -357,17 +351,11 @@
   <section class="hero">
     <h1>Sab <em>gully</em> ek jagah.</h1>
     <p>Har dukaan ki apni ghadi hai — saloon dopahar mein sust, tapri shaam ko bhari, truck raat bhar jaga. Kisi ek pe click karo, ek pal ke liye wahin ruk jao, phir andar chale jao.</p>
-    <button class="soundtoggle muted" id="ambientToggle">
-      <span class="bars"><i></i><i></i><i></i></span>
-      <span id="ambientLabel">Chauraha ka shor chalu karo</span>
-    </button>
   </section>
 
   <p class="section-label">// dukaanein — abhi ka haal live hai</p>
 
   <div class="grid" id="grid"></div>
-
-  <audio id="ambientAudio" loop preload="none"></audio>
 
   <footer>
     <span>Built for wandering, not scrolling. Click a stall to feel it before you go in.</span>
@@ -390,49 +378,31 @@
   </div>
 </div>
 
-<!-- ===== manage / add jagah modal ===== -->
-<div class="overlay" id="manageOverlay">
-  <div class="modal">
-    <button class="modal-close" id="manageClose">✕</button>
-    <div class="modal-body">
-      <h3>अपनी जगह</h3>
-      <div class="en">Apni Jagah — max 3</div>
-      <div id="capMsg"></div>
-      <div class="userlist" id="userListWrap"></div>
-      <form id="addForm">
-        <div class="field"><label>Naam (Hindi)</label><input type="text" id="f_hi" required placeholder="जैसे — नुक्कड़ का ढाबा"></div>
-        <div class="field"><label>Name (English)</label><input type="text" id="f_en" required placeholder="e.g. Nukkad Dhaba"></div>
-        <div class="field"><label>Chhota description</label><textarea id="f_desc" required placeholder="What does it feel like here?"></textarea></div>
-        <div class="field"><label>Mood lines (ek line = ek mood, rotate karenge)</label><textarea id="f_moods" placeholder="Har line ek alag mood banegi&#10;Jitni lines utni variety"></textarea></div>
-        <div class="row2">
-          <div class="field"><label>Khulta hai (IST)</label><select id="f_open"></select></div>
-          <div class="field"><label>Band hota hai (IST)</label><select id="f_close"></select></div>
-        </div>
-        <div class="field"><label>Link (optional)</label><input type="url" id="f_url" placeholder="https://..."></div>
-        <div class="field"><label>Image URL (optional)</label><input type="url" id="f_img" placeholder="https://... — chhod do agar nahi hai"></div>
-        <div class="field">
-          <label>Rang (agar image nahi diya)</label>
-          <div class="swatches" id="swatches"></div>
-        </div>
-        <button type="submit" class="btn btn-primary" id="submitJagah">Jagah banao</button>
-      </form>
+<!-- ===== in-site embed view — visiting a stall never leaves this page ===== -->
+<div class="overlay" id="embedOverlay">
+  <div class="embedbox">
+    <div class="embedbar">
+      <span id="embedTitle">—</span>
+      <div class="embedbar-right">
+        <a id="embedFallbackLink" href="#" target="_blank" rel="noopener">Naya tab mein kholo ↗</a>
+        <button class="modal-close" id="embedClose">✕</button>
+      </div>
+    </div>
+    <div class="embedframe-wrap">
+      <div class="embedloading" id="embedLoading">Load ho raha hai…</div>
+      <iframe id="embedFrame" src="about:blank" allow="autoplay; encrypted-media; fullscreen"></iframe>
     </div>
   </div>
 </div>
 
 <script>
 /* ---------------------------------------------------------------
-   CONFIG — the only place you need to touch for sound/backdrop.
-   ambientSoundUrl: link to a looping ambience file (mp3/ogg), e.g.
-     a file in your repo like "sounds/chauraha-loop.mp3", or any
-     direct hosted audio URL. Leave empty and the button will just
-     tell you it isn't configured yet.
+   CONFIG — the only place you need to touch.
    backdropImageUrl: optional — replace the illustrated SVG skyline
      with your own full-bleed image. Leave empty to keep the SVG.
    --------------------------------------------------------------- */
 const CONFIG = {
-  ambientSoundUrl: "",
-  backdropImageUrl: ""
+  backdropImageUrl: "./images/placeholder.jpg"
 };
 
 /* ---------------------------------------------------------------
@@ -529,15 +499,6 @@ const STALLS = [
   }
 ];
 
-const HOURS = Array.from({length:24}, (_,i)=>i);
-const THEMES = [
-  {name:'marigold', c1:'#C98A2F', c2:'#6e4a19'},
-  {name:'paan', c1:'#A2453F', c2:'#5f2724'},
-  {name:'tapri', c1:'#3F5D50', c2:'#223b30'},
-  {name:'dusk', c1:'#243356', c2:'#12192e'},
-  {name:'plum', c1:'#4C2E3A', c2:'#2a1720'}
-];
-
 const grid = document.getElementById('grid');
 const nowIST = () => new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'}));
 
@@ -551,9 +512,9 @@ function fmtHour(h){
   const hh = ((h % 24) + 24) % 24; const period = hh >= 12 ? 'PM' : 'AM';
   let d = hh % 12; if(d===0) d = 12; return d + period;
 }
-/* Prefer a real image (repo file for built-ins, pasted URL for user
-   stalls). Only falls back to a plain color block if no image is
-   set or the file fails to load — never fakes texture with SVG. */
+/* Prefer a real image (repo file). Only falls back to a plain color
+   block if no image is set or the file fails to load — never fakes
+   texture with SVG. */
 function stallVisual(s){
   if(s.img){
     return `<img src="${s.img}" alt="${s.en}" loading="lazy"
@@ -562,39 +523,18 @@ function stallVisual(s){
   return `<div class="art-fallback" style="background:linear-gradient(160deg, ${s.c1||'#33415c'}, ${s.c2||'#141a2b'})"></div>`;
 }
 
-/* ---------- user stalls (localStorage, capped at 3) ---------- */
-const USER_KEY = 'chauraha_user_stalls_v1';
-function loadUserStalls(){
-  try{ return JSON.parse(localStorage.getItem(USER_KEY) || '[]'); }
-  catch(e){ return []; }
-}
-function saveUserStalls(list){
-  try{ localStorage.setItem(USER_KEY, JSON.stringify(list)); }catch(e){}
-}
-
 function renderGrid(){
   grid.innerHTML = '';
-  const userStalls = loadUserStalls();
-
-  STALLS.forEach(s => grid.appendChild(buildCard(s, false)));
-  userStalls.forEach(s => grid.appendChild(buildCard(s, true)));
-
-  const addTile = document.createElement('div');
-  addTile.className = 'stall add';
-  const remaining = 3 - userStalls.length;
-  addTile.innerHTML = `<div class="plus">+</div><h3>अपनी जगह जोड़ो</h3>
-    <p>${remaining > 0 ? remaining + ' jagah abhi bacchi hai' : 'Teen ho gayi — purani hata ke nayi banao'}</p>`;
-  addTile.addEventListener('click', openManage);
-  grid.appendChild(addTile);
+  STALLS.forEach(s => grid.appendChild(buildCard(s)));
 }
 
-function buildCard(s, isUser){
-  const open = isUser ? isUserOpen(s) : (s.status === 'live' ? isOpen(s) : false);
+function buildCard(s){
+  const open = s.status === 'live' ? isOpen(s) : false;
   const card = document.createElement('div');
-  card.className = `stall ${isUser ? 'live' : s.status} ${open ? 'open' : ''}`;
-  card.addEventListener('click', () => openStallModal(s, isUser));
+  card.className = `stall ${s.status} ${open ? 'open' : ''}`;
+  card.addEventListener('click', () => openStallModal(s));
 
-  const badge = (!isUser && s.status === 'soon')
+  const badge = (s.status === 'soon')
     ? `<span class="badge soon">Nirmaan mein</span>`
     : `<span class="badge ${open ? 'open' : 'closed'}">${open ? 'Khula abhi' : 'Band'}</span>`;
 
@@ -605,7 +545,6 @@ function buildCard(s, isUser){
     <div class="stall-art">
       ${art}
       <div class="bulbs">${Array(7).fill('<i></i>').join('')}</div>
-      ${isUser ? `<span class="userbadge">tumhari jagah</span>` : ''}
       ${badge}
     </div>
     <div class="stall-body">
@@ -613,30 +552,15 @@ function buildCard(s, isUser){
       <div class="en">${s.en}</div>
       <p class="desc">${s.desc}</p>
       <div class="hours">${hoursLine}</div>
-      ${(isUser || s.status==='live') ? `<div class="go">Andar chalo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>` : ''}
-      ${isUser ? `<button class="removeBtn" data-id="${s.id}">hatao</button>` : ''}
+      ${s.status==='live' ? `<div class="go">Andar chalo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>` : ''}
     </div>
   `;
-
-  if(isUser){
-    card.querySelector('.removeBtn').addEventListener('click', (e)=>{
-      e.stopPropagation();
-      const list = loadUserStalls().filter(u => u.id !== s.id);
-      saveUserStalls(list); renderGrid();
-    });
-  }
   return card;
-}
-function isUserOpen(s){
-  if(s.open===0 && s.close===24) return true;
-  const h = nowIST().getHours() + nowIST().getMinutes()/60;
-  if(s.open < s.close) return h >= s.open && h < s.close;
-  return h >= s.open || h < s.close;
 }
 
 /* ---------- stall modal (the mood write-up) ---------- */
 const stallOverlay = document.getElementById('stallOverlay');
-function openStallModal(s, isUser){
+function openStallModal(s){
   const moods = (s.moods && s.moods.length) ? s.moods : ["Kuch der ke liye yahin ruk jao."];
   const mood = moods[Math.floor(Math.random()*moods.length)];
 
@@ -648,10 +572,13 @@ function openStallModal(s, isUser){
   const actions = document.getElementById('modalActions');
   actions.innerHTML = '';
   if(s.url){
-    const a = document.createElement('a');
-    a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
-    a.className = 'btn btn-primary'; a.textContent = 'Andar chalo →';
-    actions.appendChild(a);
+    const b = document.createElement('button');
+    b.className = 'btn btn-primary'; b.textContent = 'Andar chalo →';
+    b.addEventListener('click', () => {
+      closeStallModal();
+      openEmbed(s.url, s.hi);
+    });
+    actions.appendChild(b);
   } else {
     const p = document.createElement('span');
     p.className = 'modal-note'; p.textContent = 'Yeh jagah abhi bann rahi hai — link jald aayega.';
@@ -667,82 +594,6 @@ function openStallModal(s, isUser){
 function closeStallModal(){ stallOverlay.classList.remove('show'); }
 document.getElementById('modalClose').addEventListener('click', closeStallModal);
 stallOverlay.addEventListener('click', e => { if(e.target === stallOverlay) closeStallModal(); });
-
-/* ---------- manage / add jagah modal ---------- */
-const manageOverlay = document.getElementById('manageOverlay');
-const openSel = document.getElementById('f_open');
-const closeSel = document.getElementById('f_close');
-HOURS.forEach(h => {
-  openSel.innerHTML += `<option value="${h}">${fmtHour(h)}</option>`;
-  closeSel.innerHTML += `<option value="${h}">${fmtHour(h)}</option>`;
-});
-let selectedTheme = THEMES[0];
-const swatchWrap = document.getElementById('swatches');
-THEMES.forEach((t,i)=>{
-  const sw = document.createElement('div');
-  sw.className = 'swatch' + (i===0 ? ' sel' : '');
-  sw.style.background = `linear-gradient(160deg, ${t.c1}, ${t.c2})`;
-  sw.addEventListener('click', ()=>{
-    selectedTheme = t;
-    [...swatchWrap.children].forEach(c=>c.classList.remove('sel'));
-    sw.classList.add('sel');
-  });
-  swatchWrap.appendChild(sw);
-});
-
-function openManage(){
-  const list = loadUserStalls();
-  const wrap = document.getElementById('userListWrap');
-  const capMsg = document.getElementById('capMsg');
-  const form = document.getElementById('addForm');
-
-  wrap.innerHTML = list.map(u => `
-    <div class="item"><span>${u.hi} — ${u.en}</span><button data-id="${u.id}">hatao</button></div>
-  `).join('');
-  wrap.querySelectorAll('button').forEach(b=>{
-    b.addEventListener('click', ()=>{
-      const updated = loadUserStalls().filter(u=>u.id !== b.dataset.id);
-      saveUserStalls(updated); renderGrid(); openManage();
-    });
-  });
-
-  if(list.length >= 3){
-    capMsg.innerHTML = `<div class="capnote">Teen jagah ho gayi ✦ ek hata ke nayi jodo</div>`;
-    form.style.display = 'none';
-  } else {
-    capMsg.innerHTML = '';
-    form.style.display = 'block';
-  }
-  manageOverlay.classList.add('show');
-}
-function closeManage(){ manageOverlay.classList.remove('show'); }
-document.getElementById('manageClose').addEventListener('click', closeManage);
-manageOverlay.addEventListener('click', e => { if(e.target === manageOverlay) closeManage(); });
-
-document.getElementById('addForm').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const list = loadUserStalls();
-  if(list.length >= 3) return;
-  const moodsRaw = document.getElementById('f_moods').value.trim();
-  const moods = moodsRaw ? moodsRaw.split('\n').map(m=>m.trim()).filter(Boolean) : [];
-  const entry = {
-    id: 'u_' + Date.now(),
-    hi: document.getElementById('f_hi').value.trim(),
-    en: document.getElementById('f_en').value.trim(),
-    desc: document.getElementById('f_desc').value.trim(),
-    moods: moods.length ? moods : ["Yeh jagah tumne banayi hai — apna mood khud likho."],
-    open: Number(document.getElementById('f_open').value),
-    close: Number(document.getElementById('f_close').value),
-    url: document.getElementById('f_url').value.trim(),
-    img: document.getElementById('f_img').value.trim(),
-    c1: selectedTheme.c1, c2: selectedTheme.c2
-  };
-  list.push(entry);
-  saveUserStalls(list);
-  e.target.reset();
-  closeManage();
-  renderGrid();
-});
 
 renderGrid();
 
@@ -763,46 +614,46 @@ function tickCount(){
 }
 tickCount(); setInterval(tickCount, 4000);
 
-/* ambient toggle — actually plays CONFIG.ambientSoundUrl */
-const btn = document.getElementById('ambientToggle');
-const label = document.getElementById('ambientLabel');
-const audioEl = document.getElementById('ambientAudio');
-let playing = false;
-
-if(CONFIG.ambientSoundUrl){
-  audioEl.src = CONFIG.ambientSoundUrl;
-} else {
-  btn.title = "Set CONFIG.ambientSoundUrl at the top of the script to enable this.";
-}
-
-btn.addEventListener('click', ()=>{
-  if(!CONFIG.ambientSoundUrl){
-    label.textContent = 'Pehle CONFIG.ambientSoundUrl set karo';
-    return;
-  }
-  if(!playing){
-    audioEl.play().then(()=>{
-      playing = true;
-      btn.classList.remove('muted');
-      label.textContent = 'Shor chal raha hai';
-    }).catch(()=>{
-      playing = false;
-      btn.classList.add('muted');
-      label.textContent = 'Sound chalu nahi hua — dubara try karo';
-    });
-  } else {
-    audioEl.pause();
-    playing = false;
-    btn.classList.add('muted');
-    label.textContent = 'Chauraha ka shor chalu karo';
-  }
-});
-
 /* optional: swap the illustrated SVG skyline for a real image */
 if(CONFIG.backdropImageUrl){
   document.querySelector('.backdrop').innerHTML =
     `<img src="${CONFIG.backdropImageUrl}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
 }
+
+/* ---------- in-site embed view — stalls open inline, never a redirect ---------- */
+const embedOverlay = document.getElementById('embedOverlay');
+const embedFrame = document.getElementById('embedFrame');
+const embedLoading = document.getElementById('embedLoading');
+const embedTitle = document.getElementById('embedTitle');
+const embedFallbackLink = document.getElementById('embedFallbackLink');
+
+function openEmbed(url, title){
+  embedTitle.textContent = title;
+  embedFallbackLink.href = url;
+  embedLoading.classList.remove('hide');
+  embedLoading.textContent = 'Load ho raha hai…';
+  embedFrame.src = url;
+  embedOverlay.classList.add('show');
+
+  embedFrame.onload = () => embedLoading.classList.add('hide');
+  // some sites refuse to be framed for their own security (X-Frame-Options /
+  // CSP) — the iframe just stays blank with no JS-visible error in that
+  // case, so after a few seconds we surface the "open in new tab" option
+  // more prominently instead of leaving the visitor staring at nothing.
+  clearTimeout(window.__embedTimer);
+  window.__embedTimer = setTimeout(() => {
+    if(!embedLoading.classList.contains('hide')){
+      embedLoading.innerHTML = `Yeh jagah shayad andar embed hone nahi deti.<br><a href="${url}" target="_blank" rel="noopener" style="color:var(--marigold-2)">Naya tab mein kholo ↗</a>`;
+    }
+  }, 4000);
+}
+function closeEmbed(){
+  embedOverlay.classList.remove('show');
+  embedFrame.src = 'about:blank';
+  clearTimeout(window.__embedTimer);
+}
+document.getElementById('embedClose').addEventListener('click', closeEmbed);
+embedOverlay.addEventListener('click', e => { if(e.target === embedOverlay) closeEmbed(); });
 
 /* bunting flags along the top string, drawn once so colors match theme */
 (function drawBunting(){
@@ -812,12 +663,9 @@ if(CONFIG.backdropImageUrl){
   const total = 26;
   for(let i=0;i<total;i++){
     const t = i/(total-1);
-    const x = t*1400;
-    const y = 40 + Math.sin(t*Math.PI)*70 - 70*Math.sin(t*Math.PI) + (t<.5 ? (0.5-t)*140 : (t-0.5)*-140) ;
-    // simple sagging curve approximation
-    const yy = 40 + Math.pow(Math.sin(Math.PI*t),0.6)*70 * -1 + 70;
     const tri = document.createElementNS(svgNS,'path');
     const yPos = 45 + (Math.sin(t*Math.PI)) * 55;
+    const x = t*1400;
     tri.setAttribute('d', `M${x-7} ${yPos} L${x+7} ${yPos} L${x} ${yPos+16} Z`);
     tri.setAttribute('fill', colors[i % colors.length]);
     tri.setAttribute('opacity', '0.85');
